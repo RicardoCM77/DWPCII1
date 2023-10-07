@@ -9,6 +9,9 @@
     "settings": {
         "import/resolver" : { "babel-module" : {}}
       },
+      "globals": {
+        "__rootdir": "readonly"
+      },
     "extends": ["airbnb-base", "prettier"],
     "parserOptions": {
         "ecmaVersion": "latest",
