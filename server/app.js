@@ -11,7 +11,8 @@ import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
 import debug from './services/debugLogger';
 
-// var debug = require('debug')('dwpcii:server');
+// Importing template-engine
+import configTemplateEngine from './config/templateEngine';
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
@@ -65,6 +66,9 @@ if (nodeEnviroment === 'development') {
 // Configurando el motor de plantillas
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+// Configuring the template engine
+configTemplateEngine(app);
 
 // Se establecen los middlewares
 // Log all received requests
