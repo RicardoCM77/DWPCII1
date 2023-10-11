@@ -15,14 +15,14 @@ import debug from './services/debugLogger';
 // Importing template-engine
 import configTemplateEngine from './config/templateEngine';
 
-import indexRouter from './routes/index';
-import usersRouter from './routes/users';
-
 // Importing webpack configuration
 import webpackConfig from '../webpack.dev.config';
 
 // Impornting winston logger
 import log from './config/winston';
+
+// Importando enrutador
+import router from './router';
 
 // Creando variable del directorio raiz
 // eslint-disable-next-line
@@ -80,14 +80,7 @@ app.use(cookieParser());
 // Crea un server de archivos estaticos
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// Registro de Middlewares de aplicación
-app.use('/', indexRouter);
-// Activa "usersRourter" cuando se
-// solicita "/users"
-app.use('/users', usersRouter);
-// app.use('/author', (req, res)=>{
-//   res.json({mainDeveloper: "Ricardo Cortes Martin"})
-// });
+router.addRoutes(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
