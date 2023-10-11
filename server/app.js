@@ -3,7 +3,8 @@ import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
-import logger from 'morgan';
+// Library to log http communication
+import morgan from 'morgan';
 
 // Setting Webpack Modules
 import webpack from 'webpack';
@@ -73,7 +74,6 @@ configTemplateEngine(app);
 // Se establecen los middlewares
 // Log all received requests
 app.use(morgan('dev', { stream: log.stream }));
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
