@@ -1,21 +1,21 @@
-// Actions methods
-// GET 'user/login'
-const login = (req, res) => {
-    res.send("🚧 UNDER CONSTRUCTION GET 'user/login' 🚧");
-  };
-  // GET 'user/logout'
-  const logout = (req, res) => {
-    res.send("🚧 UNDER CONSTRUCTION GET 'user/logout' 🚧");
-  };
-  // GET 'user/register'
-  const register = (req, res) => {
-    res.send("🚧 UNDER CONSTRUCTION GET 'user/register' 🚧");
-  };
-  
-  // Controlador Home
-  export default {
-    login,
-    logout,
-    register,
-  };
-  
+// Importando el Router de Express
+import { Router } from 'express';
+
+// Importando el controlador
+import userController from './user.controller';
+
+// Creando una isntancia del enrutador
+const router = new Router();
+
+// Enrutamos
+// GET '/user/login
+router.get('/login', userController.login);
+
+// GET '/user/logout
+router.get('/logout', userController.logout);
+
+// GET '/user/register
+router.get('/register', userController.register);
+
+// Exporto este tramo de ruta
+export default router;
