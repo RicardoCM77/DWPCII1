@@ -2,7 +2,7 @@
 
 // GET '/user/about'
 const about = (req, res) => {
-    res.send("🚧 UNDER CONSTRUCTION '/user/about' 🚧");
+  res.send("🚧 UNDER CONSTRUCTION '/user/about' 🚧");
 };
 
 // Controlador Home
