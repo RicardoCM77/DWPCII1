@@ -11,7 +11,7 @@ const add = (req, res) => {
 
 const addPost = (req, res) => {
   // Extrayendo la informacion
-  // del formulario
+  // del form
   const { name, description } = req.body;
   // Regresando al cliente la información recabada
   res.status(200).json({
