@@ -1,4 +1,4 @@
-// Importando el Dotenv
+// Imortando el DotEnv
 import dotenv from 'dotenv';
 
 // Invocación a la función config de
@@ -14,33 +14,36 @@ const defaultConfig = {
 };
 
 const devConfig = {
-  DEV_VALUE: 100,
+  MONGO_URL: process.env.DEV_DATABASE_URL,
 };
 
 const testConfig = {
-  TEST_VALUE: 200,
+  TESY_VALUE: 200,
 };
 
 const prodConfig = {
-  PROD_VALUE: 300,
+  MONGO_URL: process.env.PROD_DATABASE_URL,
 };
 
 // Creando una función selectora
-function getEnvConfig(env) {
+function getEnvCOnfig(env) {
   switch (env) {
     case 'production':
       return prodConfig;
+
     case 'development':
       return devConfig;
+
     case 'test':
       return testConfig;
+
     default:
       return devConfig;
   }
 }
 
-// Exportsr el Objeto de configuración
+// exportar el objeto de configuración
 export default {
   ...defaultConfig,
-  ...getEnvConfig(process.env.NODE_ENV),
+  ...getEnvCOnfig(process.env.NODE_ENV),
 };
