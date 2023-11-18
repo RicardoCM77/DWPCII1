@@ -17,8 +17,12 @@ const addPost = (req, res) => {
   // se le informa al cliente
   if (validationError) {
     log.info('Se entrega al cliente error de validación de add Project');
+    // Se desestructuran los datos de validación
     const { value: project } = validationError;
+    // Se extraen los campos que fallaron en la validación
     const errorModel = validationError.inner.reduce((prev, curr) => {
+      // Creando una variable temporal para
+      // evitar el error "no-param-reassing"
       const workinPrev = prev;
       workinPrev[`${curr.path}`] = curr.message;
       return workinPrev;
