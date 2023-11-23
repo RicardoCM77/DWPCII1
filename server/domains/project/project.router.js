@@ -14,7 +14,7 @@ const router = new Router();
 
 // Enrutamos
 // GET '/user/["projects", "dashboard"]
-router.get(['/', '/projects', '/dashboard'], projectController.showdasboard);
+router.get(['/', '/projects', '/dashboard'], projectController.showdashboard);
 
 // GET '/user/project/["add-form", "add"]
 router.get(['/add-form', '/add'], projectController.add);
