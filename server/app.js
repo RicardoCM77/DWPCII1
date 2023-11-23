@@ -8,6 +8,9 @@ import webpack from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
 
+// Enable put an delete verbs
+import methodOverride from 'method-override';
+
 // Importing webpack configuration
 import webpackConfig from '../webpack.dev.config';
 // Importing template-engine
@@ -81,6 +84,8 @@ app.use(morgan('dev', { stream: log.stream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// Enable put and delet verbs
+app.use(methodOverride('_method'));
 // crear un server de archivos estáticos
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
