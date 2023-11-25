@@ -1,5 +1,5 @@
 // Importando manejo de sesiones
-import ExpressSesion from 'express-session';
+import ExpressSession from 'express-session';
 // Importando soporte para mensajes flash
 import ConnectFlash from 'connect-flash';
 // Importando soporte para almacenado de sesiones
@@ -22,11 +22,11 @@ const options = {
 // Exportando función registradora
 export default (app) => {
   // Creando el middleware
-  const sessionMiddleware = ExpressSesion(options);
+  const sessionMiddleware = ExpressSession(options);
   // Registrando middleware
   app.use(sessionMiddleware);
   // Registramos middleware de mensajes flash
-  app.use(ConnectFlash);
+  app.use(ConnectFlash());
   // Se crea middleware para rescatar los mensajes
   // de las sesiones
   app.use((req, res, next) => {
@@ -37,6 +37,6 @@ export default (app) => {
     res.locals.passportError = req.flash('passportError');
     next();
   });
-  // Retornado la app
+  // Retornando la app
   return app;
 };
